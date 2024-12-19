@@ -40,3 +40,9 @@ jobs:
       run: |
         OpenCover.Console.exe -register:user -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"test --no-build --configuration Release -f net6.0 --logger:trx;LogFileName=results.trx /p:DebugType=full src\NetMQ.Tests\NetMQ.Tests.csproj" -filter:"+[NetMQ*]* -[NetMQ.Tests*]*" -output:".\NetMQ_coverage.xml" -oldStyle
         codecov -f "NetMQ_coverage.xml"
+    # Publish Artifacts 
+    - name: 'Publish Artifacts'
+      uses: actions/upload-artifact@v4.4.0
+      with:
+        name: artifactory_release
+        path: ./src/NetMQ/bin/Release/bin/Release
