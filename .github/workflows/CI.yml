@@ -45,4 +45,4 @@ jobs:
       uses: actions/upload-artifact@v4.4.0
       with:
         name: artifactory_release
-        path: ./src/NetMQ/bin/Release/bin/Release
+        path: ./src/NetMQ/bin/Release
